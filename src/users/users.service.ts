@@ -12,6 +12,12 @@ export class UserService {
   private users: User[] = [];
 
   public createUser(createUserInput: CreateUserInput): User {
+    const founderUser = this.users.find(
+      (user) => user.email === createUserInput.email,
+    );
+    if (founderUser) {
+      return;
+    }
     const newUser: User = {
       userId: uuidv4(),
       ...createUserInput,

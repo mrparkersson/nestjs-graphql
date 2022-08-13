@@ -9,6 +9,7 @@ import { join } from 'path';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/models/user.gql'),
+      playground: true,
     }),
     UsersModule,
   ],
